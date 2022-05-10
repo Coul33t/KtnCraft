@@ -1,0 +1,26 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.20)
+
+PROJECT(KtnCraft)
+
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++17")
+
+INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/include)
+INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/extlib/random)
+LINK_DIRECTORIES(${CMAKE_SOURCE_DIR}/extlib/flecs)
+
+INCLUDE_DIRECTORIES(
+        ${PROJECT_SOURCE_DIR}/include
+        ${PROJECT_SOURCE_DIR}/src
+)
+
+FILE(GLOB all_SRCS
+        "${PROJECT_SOURCE_DIR}/main.cpp"
+        "${PROJECT_SOURCE_DIR}/include/*.hpp"
+        "${PROJECT_SOURCE_DIR}/src/*.cpp"
+)
+
+ADD_DEFINITIONS(-w)
+
+ADD_EXECUTABLE(KtnCraft ${all_SRCS})
+TARGET_LINK_LIBRARIES(KtnCraft libraylib.so flecs)
+#TARGET_LINK_LIBRARIES(ProjectRLECS PRIVATE libtcod::libtcod  ${CMAKE_SOURCE_DIR}/extlib/flecs/libflecs_static.a)
