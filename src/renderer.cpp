@@ -8,6 +8,6 @@ Renderer::~Renderer() {
 
 }
 
-Renderer::initRessources() {
+void Renderer::initRessources() {
     
 }

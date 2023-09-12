@@ -13,4 +13,4 @@ public:
     void initRessources();
 
     std::map<std::string, TextureCubemap> textures_atlas;
-}
+};
